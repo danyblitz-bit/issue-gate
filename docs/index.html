@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue Gate — GitHub Issue Forms That Require a Reproduction</title>
+<meta name="description" content="Issue Gate generates GitHub's native issue forms and chooser config with steps-to-reproduce made mandatory, blank issues disabled and contact links ordered by usefulness. No bot, no AI, no dependencies.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 80px 0 40px; text-align: center; }
+  header h1 { font-size: 3rem; background: linear-gradient(135deg, #58a6ff, #f0883e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  header p { font-size: 1.2rem; color: #8b949e; max-width: 620px; margin: 16px auto; }
+  .badge { display: inline-block; background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 4px 12px; margin: 4px; font-size: 0.85rem; color: #8b949e; }
+  .cta { margin-top: 32px; }
+  .btn { display: inline-block; background: #238636; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 1.1rem; font-weight: 600; }
+  .btn:hover { background: #2ea043; }
+  .btn.secondary { background: #1f6feb; margin-left: 12px; }
+  .btn.secondary:hover { background: #388bfd; }
+  .features { padding: 60px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 28px; }
+  .card h3 { color: #58a6ff; margin-bottom: 12px; }
+  .card p { color: #8b949e; font-size: 0.95rem; }
+  section h2 { margin: 40px 0 24px; color: #f0883e; font-size: 1.6rem; }
+  code { background: #21262d; padding: 2px 8px; border-radius: 4px; color: #79c0ff; font-size: 0.9em; }
+  .usage-steps { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 32px; }
+  .usage-steps ol { padding-left: 20px; color: #8b949e; }
+  .usage-steps li { margin-bottom: 12px; }
+  footer { padding: 40px 0; text-align: center; color: #484f58; font-size: 0.85rem; border-top: 1px solid #21262d; margin-top: 60px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Issue Gate</h1>
+    <p>GitHub's own bug form leaves <em>Steps To Reproduce</em> optional, so "it doesn't work" reports walk straight through the form and land on a maintainer. Issue Gate writes the same native files with that gap closed.</p>
+    <div>
+      <span class="badge">Python</span>
+      <span class="badge">CLI</span>
+      <span class="badge">DevTools</span>
+      <span class="badge">Zero Dependencies</span>
+      <span class="badge">MIT License</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://github.com/danyblitz-bit/issue-gate">View on GitHub</a>
+      <a class="btn secondary" href="https://danyblitz.gumroad.com/l/zjkam">Get the DevTools Bundle</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <section class="features">
+    <div class="card">
+      <h3>Required Repro, Not a Bot</h3>
+      <p>GitHub enforces a required form field at submit time, before the issue exists. No comment bot telling someone their issue is invalid — one polite form, asked once.</p>
+    </div>
+    <div class="card">
+      <h3>Blank Issues Disabled</h3>
+      <p>Chooses <code>blank_issues_enabled: false</code> so contributors get a form instead of an empty editor, plus a question form or a Discussions link so nothing is left unrouted.</p>
+    </div>
+    <div class="card">
+      <h3>Ecosystem Prefill</h3>
+      <p>Reads your repo and prefills the environment block with the right fields — Node, Python, Rust, Go, JVM, Ruby, PHP — so reporters fill in versions that matter to you.</p>
+    </div>
+    <div class="card">
+      <h3>Never Overwrites</h3>
+      <p>An existing template is reported and left untouched, and <code>--dry-run</code> prints a unified diff with POSIX paths, ready to paste into a pull request.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick Start</h2>
+    <div class="usage-steps">
+      <ol>
+        <li>Nothing to install: this is 100% Python standard library.</li>
+        <li><code>python -m tools.issue-gate ~/code/my-lib --dry-run</code> — see the diff, write nothing.</li>
+        <li><code>python -m tools.issue-gate ~/code/my-lib</code> — write <code>.github/ISSUE_TEMPLATE/</code>, then push and open <code>/issues/new/choose</code>.</li>
+        <li><code>python -m tools.issue-gate --self-check</code> — verify the tool works on your machine.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>Issue Gate — MIT licensed · Built for Survive suite · Running on data-scraper, site-auditor, pdf-metaclean and photo-metaclean</p>
+  </footer>
+</div>
+</body>
+</html>
