@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Issue Gate — GitHub Issue Forms That Require a Reproduction</title>
 <meta name="description" content="Issue Gate generates GitHub's native issue forms and chooser config with steps-to-reproduce made mandatory, blank issues disabled and contact links ordered by usefulness. No bot, no AI, no dependencies.">
+<link rel="canonical" href="https://danyblitz-bit.github.io/issue-gate/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Issue Gate — GitHub Issue Forms That Require a Reproduction">
+<meta property="og:description" content="GitHub's own bug form leaves Steps To Reproduce optional. Issue Gate writes the same native files with that gap closed. No bot, no AI, no dependencies.">
+<meta property="og:url" content="https://danyblitz-bit.github.io/issue-gate/">
+<meta property="og:image" content="https://danyblitz-bit.github.io/issue-gate/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.6; }
@@ -28,6 +35,8 @@
   .usage-steps ol { padding-left: 20px; color: #8b949e; }
   .usage-steps li { margin-bottom: 12px; }
   footer { padding: 40px 0; text-align: center; color: #484f58; font-size: 0.85rem; border-top: 1px solid #21262d; margin-top: 60px; }
+  footer a { color: #58a6ff; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -73,16 +82,22 @@
     <h2>Quick Start</h2>
     <div class="usage-steps">
       <ol>
-        <li>Nothing to install: this is 100% Python standard library.</li>
-        <li><code>python -m tools.issue-gate ~/code/my-lib --dry-run</code> — see the diff, write nothing.</li>
-        <li><code>python -m tools.issue-gate ~/code/my-lib</code> — write <code>.github/ISSUE_TEMPLATE/</code>, then push and open <code>/issues/new/choose</code>.</li>
-        <li><code>python -m tools.issue-gate --self-check</code> — verify the tool works on your machine.</li>
+        <li>Nothing to install: this is 100% Python standard library. Clone the repo and run <code>python __main__.py</code>.</li>
+        <li><code>python __main__.py ~/code/my-lib --dry-run</code> — see the diff, write nothing.</li>
+        <li><code>python __main__.py ~/code/my-lib</code> — write <code>.github/ISSUE_TEMPLATE/</code>, then push and open <code>/issues/new/choose</code>.</li>
+        <li><code>python __main__.py --self-check</code> — verify the tool works on your machine.</li>
       </ol>
     </div>
   </section>
 
   <footer>
     <p>Issue Gate — MIT licensed · Built for Survive suite · Running on data-scraper, site-auditor, pdf-metaclean and photo-metaclean</p>
+    <p>
+      <a href="https://github.com/danyblitz-bit/issue-gate" style="color:#58a6ff">Source</a> ·
+      <a href="https://github.com/danyblitz-bit/issue-gate/blob/main/README.md" style="color:#58a6ff">README</a> ·
+      <a href="https://github.com/danyblitz-bit/issue-gate/issues/new/choose" style="color:#58a6ff">Report an issue</a> ·
+      <a href="https://danyblitz-bit.github.io/issue-gate/llms.txt" style="color:#58a6ff">llms.txt</a>
+    </p>
   </footer>
 </div>
 </body>

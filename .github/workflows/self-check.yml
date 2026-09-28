@@ -1,0 +1,49 @@
+name: self-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Self-check the generator
+        run: python __main__.py --self-check
+
+      - name: Committed issue forms must match the generator
+        run: |
+          python - <<'PY'
+          import importlib.util, pathlib, sys
+
+          spec = importlib.util.spec_from_file_location("gate", "__main__.py")
+          gate = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(gate)
+
+          repo = pathlib.Path(".")
+          files = gate.build_files(repo, docs="", upstream="", discussions_flag=False)
+
+          drifted = [
+              name
+              for name, text in files.items()
+              if (repo / gate.TEMPLATE_DIR / name).read_text(encoding="utf-8") != text
+          ]
+          if drifted:
+              sys.exit(f"committed forms drifted from the generator: {drifted}")
+
+          try:
+              import yaml
+          except ImportError:
+              print("PyYAML missing, skipping the parse check")
+              raise SystemExit(0)
+
+          for text in files.values():
+              yaml.safe_load(text)
+          print(f"{len(files)} generated forms match and parse")
+          PY

@@ -23,24 +23,29 @@ Running on our own public repos, merged as PRs:
 
 No dependencies — Python 3.10+.
 
+Landing page: <https://danyblitz-bit.github.io/issue-gate/> · machine-readable summary: [`llms.txt`](docs/llms.txt)
+
 ```bash
+git clone https://github.com/danyblitz-bit/issue-gate.git
+cd issue-gate
+
 # See the diff, write nothing
-python -m tools.issue-gate /path/to/repo --dry-run
+python __main__.py /path/to/repo --dry-run
 
 # A Node library, questions routed to Discussions
-python -m tools.issue-gate ~/code/my-lib --discussions
+python __main__.py ~/code/my-lib --discussions
 
 # Add contact links, then write
-python -m tools.issue-gate ~/code/my-lib \
+python __main__.py ~/code/my-lib \
   --docs https://mylib.dev/docs \
   --upstream https://github.com/vendor/base-lib \
   --discussions
 
 # Print the generated files in full
-python -m tools.issue-gate ~/code/my-lib --verbose
+python __main__.py ~/code/my-lib --verbose
 
 # Verify the tool works on your machine
-python -m tools.issue-gate --self-check
+python __main__.py --self-check
 ```
 
 Then push and open `/issues/new/choose` on the repo to see the gate.
@@ -86,7 +91,7 @@ Issue Gate is free and open source. Like it?
 Found a bug or something weird? Run:
 
 ```bash
-python -m tools.issue-gate --report
+python __main__.py --report
 ```
 
 This opens a pre-filled email. Send it and I'll get notified automatically.
