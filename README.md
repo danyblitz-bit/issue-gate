@@ -83,7 +83,7 @@ GitHub enforces a required form field at submit time, before the issue exists. A
 
 Issue Gate is free and open source. Like it?
 
-- [Get the DevTools Bundle](https://danyblitz.gumroad.com/l/zjkam) — 3 other tools + guide, pay what you want. Binaries are free here too; the bundle is support
+- [Get your site audited — €49](https://danyblitz.gumroad.com/l/jsuyla) — I run the audit and send you the fixes
 - [Buy me a coffee](https://danyblitz.gumroad.com/l/hrvpiu) — one-time support
 
 ## Report a bug
