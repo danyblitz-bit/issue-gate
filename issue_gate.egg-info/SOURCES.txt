@@ -1,0 +1,12 @@
+LICENSE
+README.md
+__init__.py
+__main__.py
+pyproject.toml
+./__init__.py
+./__main__.py
+issue_gate.egg-info/PKG-INFO
+issue_gate.egg-info/SOURCES.txt
+issue_gate.egg-info/dependency_links.txt
+issue_gate.egg-info/entry_points.txt
+issue_gate.egg-info/top_level.txt

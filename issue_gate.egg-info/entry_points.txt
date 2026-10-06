@@ -1,0 +1,2 @@
+[console_scripts]
+issuegate = issuegate.__main__:main
